@@ -1,0 +1,22 @@
+{
+  "name": "desi-name",
+  "version": "1.0.0",
+  "description": "a name validator for desi people by desi people",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FahadAminShovon/desi-name.git"
+  },
+  "keywords": [
+    "validator"
+  ],
+  "author": "fahadamin991",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FahadAminShovon/desi-name/issues"
+  },
+  "homepage": "https://github.com/FahadAminShovon/desi-name#readme"
+}
