@@ -1,22 +1,49 @@
 {
-  "name": "desi-name",
-  "version": "1.0.0",
-  "description": "a name validator for desi people by desi people",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/FahadAminShovon/desi-name.git"
-  },
-  "keywords": [
-    "validator"
-  ],
-  "author": "fahadamin991",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/FahadAminShovon/desi-name/issues"
-  },
-  "homepage": "https://github.com/FahadAminShovon/desi-name#readme"
+	"name": "desi-name",
+	"version": "1.0.0",
+	"description": "a name validator for desi people by desi people",
+	"main": "./dist/index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "tsc"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/FahadAminShovon/desi-name.git"
+	},
+	"keywords": [
+		"validator"
+	],
+	"author": "fahadamin991",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/FahadAminShovon/desi-name/issues"
+	},
+	"homepage": "https://github.com/FahadAminShovon/desi-name#readme",
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.{js,jsx}": [
+			"prettier --write",
+			"eslint --fix",
+			"git add"
+		]
+	},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^4.22.0",
+		"@typescript-eslint/parser": "^4.22.0",
+		"eslint": "^7.25.0",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-prettier": "^3.4.0",
+		"husky": "^6.0.0",
+		"lint-staged": "^10.5.4",
+		"prettier": "^2.2.1",
+		"typescript": "^4.2.4"
+	},
+	"files": [
+		"dist"
+	]
 }
