@@ -1,3 +1,5 @@
+import { InvalidValueError } from './errors';
+
 type validateType = {
 	name: string;
 	maxLen?: number;
@@ -16,6 +18,10 @@ type validateType = {
  * @returns boolean
  */
 function isDesiName({ name, maxLen = 20, minLen = 3 }: validateType): boolean {
+	if (minLen < 0 || maxLen < 0) {
+		throw new InvalidValueError('minLen or maxLen cannot be less than 0');
+	}
+
 	const regex = /^$|^([a-z])+(?!.*?[._-][._-])(?!.*?\s[._-\s])([._-\s]?[a-z]*)*$/i;
 	if (typeof name === 'string') {
 		const isValid = name.match(regex) || [];
