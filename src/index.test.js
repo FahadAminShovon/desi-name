@@ -1,4 +1,5 @@
 const { isDesiName } = require('./index');
+const { InvalidValueError } = require('./errors');
 
 describe('name with number', () => {
 	it('Should return false', () => {
@@ -35,5 +36,23 @@ describe('allowed special characters', () => {
 	});
 	it('should return false', () => {
 		expect(isDesiName({ name: 'fahad--amin shovon' })).toBe(false);
+	});
+});
+
+describe('validation with minLength and maxLength', () => {
+	describe('when minLen or maxLen value is smaller than 0', () => {
+		[
+			{ name: 'John', minLen: -1, maxLen: 4 },
+			{ name: 'Tahmid', minLen: 2, maxLen: -5 },
+			{ name: 'Fahad Amin', minLen: -9, maxLen: -2 },
+		].map(({ name, minLen, maxLen }) => {
+			it(`minLen=${minLen}, maxLen=${maxLen} should throw InvalidValueError`, () => {
+				expect(() => {
+					isDesiName({ name, minLen, maxLen });
+				}).toThrowError(
+					new InvalidValueError('minLen or maxLen cannot be less than 0'),
+				);
+			});
+		});
 	});
 });
