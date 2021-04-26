@@ -1,6 +1,6 @@
 {
 	"name": "desi-name",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "a name validator for desi people by desi people",
 	"main": "./dist/index.js",
 	"scripts": {
