@@ -20,12 +20,12 @@ describe('name with consecutive spaces ', () => {
 	});
 });
 
-describe('name with special  allowed special characters', () => {
+describe('name with special allowed special characters', () => {
 	it('consecutive should return false', () => {
 		expect(isDesiName({ name: 'fahad--admin' })).toBe(false);
 	});
-	it('single special characters should return false', () => {
-		expect(isDesiName({ name: 'fahad-amin-shovon' })).toBe(true);
+	it('single special characters should return true', () => {
+		expect(isDesiName({ name: 'fahad-amin shovon' })).toBe(true);
 	});
 });
 
