@@ -1,5 +1,7 @@
 # Desi-name
 
+![npm](https://img.shields.io/npm/v/desi-name)
+
 A name validator for desi people
 
 we all know someone with a very big name , or perhaps a name with multiple special charactesr.
@@ -19,7 +21,13 @@ consecutive spaces and special characters are not allowed,
 numbers not allowd,
 name can end with spaces or letters
 
-example;
+## installation
+
+```bash
+npm i desi-name
+```
+
+## example;
 
 ```js
 const { isDesiName } = require('desi-name');
