@@ -40,6 +40,55 @@ describe('allowed special characters', () => {
 });
 
 describe('validation with minLength and maxLength', () => {
+	describe('when minLength and maxLength is set to default', () => {
+		describe('when input length is greater than 20', () => {
+			it('should return false', () => {
+				expect(isDesiName({ name: 'Muhammad bin Bakhtiyar Khalji' })).toBe(
+					false,
+				);
+			});
+		});
+
+		describe('when input length is smaller than 3', () => {
+			it('should return false', () => {
+				expect(isDesiName({ name: 'ab' })).toBe(false);
+			});
+		});
+
+		describe('when input length greater than 3 but smaller than 20', () => {
+			it('should return true', () => {
+				expect(isDesiName({ name: 'Fahad Amin' })).toBe(true);
+			});
+		});
+	});
+
+	describe('when input length in smaller than minLen', () => {
+		it('should return false', () => {
+			expect(isDesiName({ name: 'John', minLen: 6 })).toBe(false);
+		});
+	});
+
+	describe('when input length in greater than maxLen', () => {
+		it('should return false', () => {
+			expect(
+				isDesiName({ name: 'Muhammad bin Bakhtiyar Khalji', maxLen: 15 }),
+			).toBe(false);
+		});
+	});
+
+	describe('when input length in within defined range', () => {
+		[
+			{ name: 'John', minLen: 2, maxLen: 4 },
+			{ name: 'Tahmid', minLen: 2, maxLen: 10 },
+			{ name: 'Fahad Amin', minLen: 10, maxLen: 10 },
+			{ name: '', minLen: 0, maxLen: 5 },
+		].map(({ name, minLen, maxLen }) => {
+			it(`name=${name}, minLen=${minLen}, maxLen=${maxLen} should return true`, () => {
+				expect(isDesiName({ name, minLen, maxLen })).toBe(true);
+			});
+		});
+	});
+
 	describe('when minLen or maxLen value is smaller than 0', () => {
 		[
 			{ name: 'John', minLen: -1, maxLen: 4 },
